@@ -1,0 +1,15 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t sunsplash/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run sunsplash/react-test npm run ci:test
+
+after_success:
+  - docker build -t sunsplash/docker-demo-complex-client ./client
+  - docker build -t sunsplash/docker-demo-complex-nginx ./nginx
+  - docker build -t sunsplash/docker-demo-complex-worker ./worker
+  - docker build -t sunsplash/docker-demo-complex-api ./api
