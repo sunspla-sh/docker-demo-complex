@@ -14,7 +14,7 @@ after_success:
   - docker build -t sunsplash/docker-demo-complex-worker ./worker
   - docker build -t sunsplash/docker-demo-complex-api ./api
   #log in to the docker cli
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID"  --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME"  --password-stdin
   #take those images and push them to dockerhub
   - docker push sunsplash/docker-demo-complex-client
   - docker push sunsplash/docker-demo-complex-nginx
