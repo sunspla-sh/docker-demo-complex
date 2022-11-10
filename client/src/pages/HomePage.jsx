@@ -88,7 +88,7 @@ function HomePage(){
   return (
     <div>
       <h1>Home Page</h1>
-      <h2>Fib Calculator</h2>
+      <h2>Fib Calculator!!!</h2>
       { errorMessage && <p style={{color: 'red'}}>{errorMessage}</p>}
       <form onSubmit={handleSubmit}>
         <label>Enter your index:</label>
