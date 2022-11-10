@@ -20,3 +20,15 @@ after_success:
   - docker push sunsplash/docker-demo-complex-nginx
   - docker push sunsplash/docker-demo-complex-worker
   - docker push sunsplash/docker-demo-complex-api
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: multidocker
+  env: Multidocker-env
+  bucket_name: elasticbeanstalk-us-east-2-717015384836
+  bucket_path: docker-multi
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
